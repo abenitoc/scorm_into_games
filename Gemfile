@@ -38,4 +38,4 @@ gem 'jquery-rails'
 gem 'thin'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'

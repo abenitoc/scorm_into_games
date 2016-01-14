@@ -3,7 +3,7 @@ namespace :db do
   	desc "Create populate data for SCORM into games"
 
   	#copy the scorm files
-  	Dir.mkdir "#{Rails.root}/public/scorm/1/"
+  Dir.mkdir "#{Rails.root}/public/scorm/1/"
   	FileUtils.cp(File.join(Rails.root, 'public/scorm_examples/rabbittakeaway.zip'), File.join(Rails.root, 'public/scorm/1/rabbittakeaway.zip'))
 	Dir.mkdir "#{Rails.root}/public/scorm/2/"
   	FileUtils.cp(File.join(Rails.root, 'public/scorm_examples/golf_n_sco.zip'), File.join(Rails.root, 'public/scorm/2/golf_n_sco.zip'))
@@ -67,19 +67,19 @@ namespace :db do
 	                        :description   => "A Virtual Excursion about the Iberian Lynx",
 	                        :avatar_url => "/images/IberianLynx.jpg",
 						    :source =>  File.open(File.join(Rails.root, 'public/scorm/8/IberianLynx.zip'))
-				    				    
+
 
 	#now three game templates
-	oArena = GameTemplate.create! 	:name=>"Onslaught Arena", 
-								:description=>"Battle hordes of classic medieval monsters in this fast-paced arcade shooter", 
+	oArena = GameTemplate.create! 	:name=>"Onslaught Arena",
+								:description=>"Battle hordes of classic medieval monsters in this fast-paced arcade shooter",
 								:avatar_url=>"/images/game_OnslaughtArena.jpg"
 
 	sokoban = GameTemplate.create! 	:name=>"Sokoban",
-								:description=>"Sokoban is a type of transport puzzle, in which the player pushes diamonds around in a warehouse", 
+								:description=>"Sokoban is a type of transport puzzle, in which the player pushes diamonds around in a warehouse",
 								:avatar_url=>"/images/game_sokoban.png"
 
-	nPark = GameTemplate.create! 	:name=>"Natural Park", 
-								:description=>"Go meet and feed the lynxes in this park.", 
+	nPark = GameTemplate.create! 	:name=>"Natural Park",
+								:description=>"Go meet and feed the lynxes in this park.",
 								:avatar_url=>"/images/game_dpark.png"
 
 	#Now the events of the templates
@@ -110,7 +110,7 @@ namespace :db do
 
 	#sokoban
 	sokobanInstance = Game.create! :name=>"Sokoban Example", :description=>"Sokoban instance example", :avatar_url=>"/images/devilAvatar.gif", :game_template_id=>sokoban.id
-	
+
 	#Event mapping for the sokoban game
 	Lo.all_ids.each do |lo_id|
 		EventMapping.create :game_id => sokobanInstance.id, :game_template_event_id => -1, :lo_id => lo_id
@@ -129,7 +129,7 @@ namespace :db do
 
 	(sf8.ids).uniq.each do |lo_id|
 		EventMapping.create! :game_id => nParkInstance.id, :game_template_event_id => nParkEvent1.id, :lo_id => lo_id
-	end	
+	end
 
 	puts "Populate finish"
   end
