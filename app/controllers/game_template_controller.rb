@@ -1,5 +1,5 @@
 class GameTemplateController < ApplicationController
-
+  #Controller in charge of Games Before adding any kind of scorm content
   def new
     respond_to do |format|
       format.html # new.html.erb

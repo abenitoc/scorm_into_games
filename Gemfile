@@ -37,5 +37,9 @@ gem 'jquery-rails'
 #To deploy in background
 gem 'thin'
 
+gem 'pry'
+gem 'pry-doc'
+
+gem 'test-unit'
 # To use debugger
 #gem 'debugger'
