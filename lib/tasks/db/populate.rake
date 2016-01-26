@@ -3,7 +3,7 @@ namespace :db do
   	desc "Create populate data for SCORM into games"
 
   	#copy the scorm files
-  Dir.mkdir "#{Rails.root}/public/scorm/1/"
+  	Dir.mkdir "#{Rails.root}/public/scorm/1/"
   	FileUtils.cp(File.join(Rails.root, 'public/scorm_examples/rabbittakeaway.zip'), File.join(Rails.root, 'public/scorm/1/rabbittakeaway.zip'))
 	Dir.mkdir "#{Rails.root}/public/scorm/2/"
   	FileUtils.cp(File.join(Rails.root, 'public/scorm_examples/golf_n_sco.zip'), File.join(Rails.root, 'public/scorm/2/golf_n_sco.zip'))
@@ -19,6 +19,8 @@ namespace :db do
   	FileUtils.cp(File.join(Rails.root, 'public/scorm_examples/WeaponsTimelineQuiz.zip'), File.join(Rails.root, 'public/scorm/7/WeaponsTimelineQuiz.zip'))
   	Dir.mkdir "#{Rails.root}/public/scorm/8/"
   	FileUtils.cp(File.join(Rails.root, 'public/scorm_examples/IberianLynx.zip'), File.join(Rails.root, 'public/scorm/8/IberianLynx.zip'))
+
+  	
 
   	#first scorm file with its learning object
 	sf1 = ScormFile.create!  :name  => "Rabbittakeaway",
@@ -82,10 +84,15 @@ namespace :db do
 								:description=>"Go meet and feed the lynxes in this park.",
 								:avatar_url=>"/images/game_dpark.png"
 
+	sInvaders = GameTemplate.create! 	:name=>"Asteroid Invaders",
+								:description=>"Destroy the space ships",
+								:avatar_url=>"/images/game_dpark.png"
+
 	#Now the events of the templates
 	oArenaEvent1 = GameTemplateEvent.create! :name=>"Extra weapon", :description=>"Event triggered when the player achieved a new weapon", :event_type=>"extra_weapon", :game_template_id=>oArena.id, :id_in_game=>1
 	sokobanEvent1 = GameTemplateEvent.create! :name=>"Extra live", :description=>"Event triggered when the devil catches the player", :event_type=>"extra_life", :game_template_id=>sokoban.id, :id_in_game=>1
 	nParkEvent1 = GameTemplateEvent.create! :name=>"Gardener Event", :description=>"Event triggered when the player talks to the gardener", :event_type=>"blocker", :game_template_id=>nPark.id, :id_in_game=>1
+	sInvadersEvent1 = GameTemplateEvent.create! :name=>"Extra Life", :description=>"Someone dies to recover", :event_type=>"extra_life", :game_template_id=>sInvaders.id, :id_in_game=>1
 
 	#Now the games
 
