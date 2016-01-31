@@ -67,5 +67,5 @@ Demo::Application.routes.draw do
 
   #Metadata
   match 'lo/:id/metadata' => 'lo#metadata'
-
+  match 'api/create' => "api#json_game", via: [:post]
 end
