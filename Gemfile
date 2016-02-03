@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 gem 'paperclip', '~> 3.0'
-gem 'scorm', :git => 'git://github.com/abenitoc/scorm.git'
+gem 'scorm', :github => 'abenitoc/scorm'
 
 # Gems used only for assets and not required
 # in production environments by default.
