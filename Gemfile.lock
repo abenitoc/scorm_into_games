@@ -1,5 +1,6 @@
-PATH
-  remote: ../scorm
+GIT
+  remote: git://github.com/abenitoc/scorm.git
+  revision: b3d47f9c90ea2f314859b0e92fd30113775f2613
   specs:
     scorm (1.0.5)
       rubyzip (>= 1.0.0)
